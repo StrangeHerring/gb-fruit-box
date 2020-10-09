@@ -1,15 +1,10 @@
 package ru.linkov.ss.fruit.box.model.fruit;
 
 public class Orange extends Fruit {
-    private String name;
-    private double weight = 1.5;
+    private double weight;
 
-    public Orange (String name, double weight){
-        super(name, weight);
-    }
-
-    public String getName() {
-        return name;
+    public Orange (double weight){
+        super(weight);
     }
 
     public double getWeight() {

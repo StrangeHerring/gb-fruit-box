@@ -6,22 +6,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Box {
-    private List<Fruit> content;
+public class Box<F extends Fruit> {
+    private List<F> fruits;
 
-    public Box(Fruit... content) {
-        this.content = Arrays.asList(content);
+    public Box(List<F> fruits) {
+        this.fruits = fruits;
     }
 
-    public List<Fruit> getContent() {
-        return content;
+    public Box(F... fruits){
+        this.fruits = new ArrayList<F>(Arrays.asList(fruits));
     }
 
-    public double getWeight(Fruit... content){
-
+    public List<F> getFruits() {
+        return fruits;
     }
 
-    public boolean compare (Box other){
-        return getWeight().equals(other.getWeight()) ;
+    public double getWeight(){
+        double sum = 0;
+        for (F fruit : fruits) {
+            sum += fruit.getWeight();
+        }
+        return sum;
+    }
+
+    public boolean compare (Box<?> other){
+        return getWeight() == other.getWeight();
     }
 }
