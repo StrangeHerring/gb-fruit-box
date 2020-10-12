@@ -28,4 +28,15 @@ public class UniteServiceTest {
 
         Assertions.assertTrue(uniteService.unite(boxFrom, boxTo).getWeight() == weightBefore);
     }
+
+    @Test
+    public void compareTest(){
+        Box<Orange> firstBox = new Box<Orange>(
+                new Orange(4));
+        Box<Orange> secondBox = new Box<Orange>(
+                new Orange(2),
+                new Orange(2));
+
+        Assertions.assertEquals(firstBox.compare(secondBox), true);
+    }
 }
